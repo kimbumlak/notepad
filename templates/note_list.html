@@ -1,12 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<style>
+h3 {
+  position: relative;
+}
+
+.icons {
+  position: absolute;
+  right: 5px;
+}
+
+</style>
+
     <div class="text-center mt-5">
       <h1>To-Do Lists</h1>
     </div>
     <hr>
     <div class="row">
-      {% for note in notes %}
+      {% for note in to_do_list %}
+      <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h3>{{ note.title }} <span class="badge badge-{{ note.get_label_display }}">
+          {{ note.due_date }}
+          </span>
+          <span class="icons">
+          <a href="{% url 'finish-note-item' note.id %}"><i class="fas fa-check"></i></a>
+          <a href="#"><i class="fas fa-trash" style="color: red;"></i></a>
+          </span>
+          </h3>
+        </div>
+      </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-5">
+      <h1>Finished Lists</h1>
+    </div>
+    <hr>
+    <div class="row">
+      {% for note in finished_list %}
       <div class="col-12">
       <div class="card">
         <div class="card-body">
@@ -14,6 +50,7 @@
           <span><i class="fas fa-check"></i></span>
           <span><i class="fas fa-trash"></i></span>
         </div>
+      </div>
       </div>
       {% endfor %}
     </div>
