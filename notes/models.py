@@ -2,14 +2,9 @@ from django.db import models
 from django.shortcuts import redirect, reverse
 
 LABEL_CHOICES = (
-    ('P', 'primary'),
-    ('SE', 'secondary'),
-    ('S', 'success'),
-    ('D', 'danger'),
     ('W', 'warning'),
-    ('I', 'info'),
-    ('L', 'light'),
-    ('DK', 'dark')
+    ('P', 'primary'),
+    ('SE', 'secondary')
 )
 
 class Note(models.Model):
