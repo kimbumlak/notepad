@@ -1,8 +1,7 @@
 <div class="card">
   <div class="card-body">
     <h3>{{ note_snippet_var.title }} <span class="badge badge-{{ note_snippet_var.get_label_display }}">
-    {{ note_snippet_var.due_date }}
-    </span>
+    {{ note_snippet_var.label }} / Deadline: {{ note_snippet_var.due_date }}
     <span class="icons">
     {% if type == "DELETE" %}
     <a href="{{ note_snippet_var.get_finish_item_url }}"><i class="fas fa-check"></i></a>

@@ -2,15 +2,15 @@ from django.db import models
 from django.shortcuts import redirect, reverse
 
 LABEL_CHOICES = (
-    ('W', 'warning'),
-    ('P', 'primary'),
-    ('SE', 'secondary')
+    ('WARNING', 'warning'),
+    ('PRIMARY', 'primary'),
+    ('SECONDARY', 'secondary')
 )
 
 class Note(models.Model):
     title = models.CharField(max_length=100)
-    due_date = models.DateTimeField()
-    label = models.CharField(choices=LABEL_CHOICES, max_length=2)
+    due_date = models.DateField()
+    label = models.CharField(choices=LABEL_CHOICES, max_length=9)
     finished = models.BooleanField(default=False)
 
     def __str__(self):
